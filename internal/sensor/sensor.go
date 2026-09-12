@@ -63,8 +63,8 @@ type Sensor struct {
 	enricher *event.Enricher
 	bootTime time.Time
 
-	// Warnings records probes that could not be attached — a kernel missing a
-	// tracepoint costs one rule, not the whole sensor.
+	// Warnings records probes that could not be attached. A kernel missing a
+	// tracepoint costs that one rule, not the whole sensor.
 	Warnings []string
 }
 

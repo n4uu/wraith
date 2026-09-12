@@ -2,16 +2,16 @@
  * Benign reproduction of the two userland primitives behind Linux process
  * injection (MITRE T1055.008 / T1055.009): a parent PTRACE_ATTACHes to its
  * own child and overwrites a buffer in the child's address space with
- * process_vm_writev. No shellcode, no execution redirection — just a string
- * swap, to give wraith's ptrace_inject and proc_mem_write rules something
- * real to fire on.
+ * process_vm_writev. No shellcode and no execution redirection, just a
+ * string swap, to give wraith's ptrace_inject and proc_mem_write rules
+ * something real to fire on.
  *
  * Attaching only to a direct child means this works under the default
  * (ptrace_scope=1) Yama restriction with no extra capabilities.
  *
  * Two pipes hand-shake parent and child so the "before" line is always
- * printed before the attach and the "after" line always after the write —
- * without them, PTRACE_ATTACH can stop the child before its first printf
+ * printed before the attach and the "after" line always after the write.
+ * Without them, PTRACE_ATTACH can stop the child before its first printf
  * ever runs, since it lands moments after fork().
  */
 #define _GNU_SOURCE
@@ -75,7 +75,7 @@ static void run_parent(pid_t child, int ready_rd, int go_wr)
 
 	/*
 	 * The child's address space holds victim_buf at an identical virtual
-	 * address to the parent's own copy — they are still the same binary
+	 * address to the parent's own copy: they are still the same binary
 	 * image, since fork() was never followed by exec().
 	 */
 	ssize_t written = process_vm_writev(child, &local, 1, &remote, 1, 0);

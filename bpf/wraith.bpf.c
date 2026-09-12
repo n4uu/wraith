@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- * wraith — kernel-side sensor.
+ * wraith: kernel-side sensor.
  *
  * Every detection rule is its own SEC() program: rules stay independently
  * attachable, independently loadable, and a verifier rejection in one never
@@ -157,7 +157,7 @@ static __always_inline int is_tmpfs_path(const char *p)
 	return 0;
 }
 
-/* /dev/fd/N, /proc/self/fd/N, /proc/<pid>/fd/N — the usual way to exec an fd. */
+/* /dev/fd/N, /proc/self/fd/N and /proc/<pid>/fd/N: the usual way to exec an fd. */
 static __always_inline int is_fd_path(const char *p)
 {
 	if (p[0] == '/' && p[1] == 'd' && p[2] == 'e' && p[3] == 'v' && p[4] == '/' &&

@@ -17,7 +17,7 @@ type Process struct {
 	Exe       string
 	Cmdline   string
 	Container string
-	// Deleted reports that the backing file of Exe is gone — either unlinked
+	// Deleted reports that the backing file of Exe is gone, either unlinked
 	// after launch or never on disk to begin with.
 	Deleted bool
 }

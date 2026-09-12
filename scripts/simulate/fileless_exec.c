@@ -2,7 +2,7 @@
  * Benign reproduction of "reflective code loading" (MITRE T1620): copy a
  * harmless binary (/bin/true) into an anonymous memfd and execute it
  * straight from that file descriptor, with no path ever touching disk.
- * This is the exact primitive wraith's fileless_exec rule watches for —
+ * This is the exact primitive wraith's fileless_exec rule watches for,
  * used here to run /bin/true instead of a payload.
  */
 #define _GNU_SOURCE

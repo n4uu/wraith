@@ -73,7 +73,7 @@ var ruleCatalog = []Rule{
 		Severity:      SevCritical,
 		Technique:     "T1620",
 		TechniqueName: "Reflective Code Loading",
-		Rationale: "The executed image never existed as a file on disk — it came from a memfd or a " +
+		Rationale: "The executed image never existed as a file on disk. It came from a memfd or a " +
 			"file descriptor. Legitimate software almost never does this; droppers and packed " +
 			"ELF loaders do it to keep the payload off the filesystem.",
 	},
@@ -106,7 +106,7 @@ var ruleCatalog = []Rule{
 		Technique:     "T1055.008",
 		TechniqueName: "Process Injection: Ptrace System Calls",
 		Rationale: "A process attached to another and issued a request that mutates its memory or " +
-			"registers — the ptrace half of Linux process injection.",
+			"registers: the ptrace half of Linux process injection.",
 	},
 	{
 		Signal:        SignalTmpfsExec,

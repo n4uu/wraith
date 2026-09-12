@@ -71,7 +71,7 @@ func (w *Webhook) run() {
 }
 
 func (w *Webhook) post(ev event.Event) error {
-	summary := fmt.Sprintf("[%s] %s (%s) — %s",
+	summary := fmt.Sprintf("[%s] %s (%s): %s",
 		strings.ToUpper(ev.Rule.Severity.String()), ev.Rule.ID, ev.Rule.Technique, ev.Message())
 
 	body, err := json.Marshal(webhookPayload{Text: summary, Content: summary, Event: ev})

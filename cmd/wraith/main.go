@@ -83,7 +83,7 @@ func run() error {
 
 	filter := output.NewFilter(minSeverity, splitComms(opts.excludeComms), opts.dedupWindow)
 
-	fmt.Fprintf(os.Stderr, "wraith %s — watching for in-memory execution and process injection (min severity: %s)\n",
+	fmt.Fprintf(os.Stderr, "wraith %s: watching for in-memory execution and process injection (min severity: %s)\n",
 		version, minSeverity)
 	fmt.Fprintf(os.Stderr, "press ctrl-c to stop\n\n")
 
@@ -120,7 +120,7 @@ func parseFlags() options {
 	flag.BoolVar(&opts.showVersion, "version", false, "print version and exit")
 
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "wraith — eBPF sensor for fileless execution and process injection on Linux\n\n")
+		fmt.Fprintf(os.Stderr, "wraith: eBPF sensor for fileless execution and process injection on Linux\n\n")
 		fmt.Fprintf(os.Stderr, "usage: sudo wraith [flags]\n\n")
 		flag.PrintDefaults()
 	}
@@ -165,7 +165,7 @@ func printRules(w *os.File) {
 
 	fmt.Fprintln(w)
 	for _, r := range event.Rules() {
-		fmt.Fprintf(w, "%s (%s — %s)\n  %s\n\n", r.ID, r.Technique, r.TechniqueName, r.Rationale)
+		fmt.Fprintf(w, "%s (%s: %s)\n  %s\n\n", r.ID, r.Technique, r.TechniqueName, r.Rationale)
 	}
 }
 
