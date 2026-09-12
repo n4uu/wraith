@@ -1,5 +1,10 @@
 # wraith
 
+[![ci](https://github.com/n4uu/wraith/actions/workflows/ci.yml/badge.svg)](https://github.com/n4uu/wraith/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/n4uu/wraith.svg)](https://pkg.go.dev/github.com/n4uu/wraith)
+[![Go Report Card](https://goreportcard.com/badge/github.com/n4uu/wraith)](https://goreportcard.com/report/github.com/n4uu/wraith)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 **An eBPF sensor for the userland primitives behind fileless execution and
 process injection on Linux.**
 
