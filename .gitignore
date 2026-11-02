@@ -3,3 +3,4 @@ scripts/simulate/fileless_exec
 scripts/simulate/proc_injection
 scripts/simulate/preload_lib.so
 *.out
+/dist/
